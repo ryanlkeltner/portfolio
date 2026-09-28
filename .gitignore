@@ -1,0 +1,13 @@
+.DS_Store
+*.HEIC
+*.heic
+*.MOV
+*.mov
+*.MP4
+*.mp4
+
+# Original photo album (large, and contains GPS location data). Site uses the copies in assets/img.
+Ryan Maker-Eng/
+
+# graphify knowledge graph output (local tool, not part of the site)
+graphify-out/

@@ -11,3 +11,7 @@ Ryan Maker-Eng/
 
 # graphify knowledge graph output (local tool, not part of the site)
 graphify-out/
+
+# Full-size originals dropped in the root (site uses resized copies in assets/img)
+/IMG_*.jpeg
+/IMG_*.jpg

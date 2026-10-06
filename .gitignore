@@ -15,3 +15,6 @@ graphify-out/
 # Full-size originals dropped in the root (site uses resized copies in assets/img)
 /IMG_*.jpeg
 /IMG_*.jpg
+
+# Résumé kept local only (has contact info); not published on the site for now
+/Ryan Keltner Resume.pdf

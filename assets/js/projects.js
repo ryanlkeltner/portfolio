@@ -241,7 +241,7 @@ const PROJECTS = [
       { src: "assets/img/guitar-pickguard.jpg",  caption: "Pickguard with three pickups, wired." },
       { src: "assets/img/guitar-solder.jpg",     caption: "Soldering the electronics." },
       { src: "assets/img/guitar-fair.jpg",       caption: "Showing it at my school's 8th grade project night." },
-      { src: "assets/img/guitar-pedalboard.jpg", caption: "A pedalboard I built for it later, in 2025." },
+      { src: "assets/img/guitar-pedalboard.jpg?v=2", caption: "A pedalboard I built for it later, in 2025." },
     ],
     links: [],
   },

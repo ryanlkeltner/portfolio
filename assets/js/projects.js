@@ -268,7 +268,7 @@ const PROJECTS = [
     learned: "Through all of this I've gotten very comfortable working with metal, and it's always so much fun. The grinding and metalwork carried straight into welding: solar car chassis parts, the post brackets on my Eagle project pergola, and custom parts for my race car.",
     media: [
       { src: "assets/img/forge-2022.jpg",    caption: "First time at the anvil, 2022." },
-      { src: "assets/img/forge-twist.jpg",   caption: "A twisted hook from those first sessions." },
+      { src: "assets/img/forge-twist.jpg",   caption: "Learning to shape heated steel." },
       { src: "assets/img/forge-glass.jpg",   caption: "Glassblowing, 2023." },
       { src: "assets/img/forge-2024.jpg",    caption: "Forging my cooking knife at the knifemaking class in Japan, 2024." },
       { src: "assets/img/forge-grinder.jpg", caption: "Shaping the Japanese cooking knife on the belt grinder." },

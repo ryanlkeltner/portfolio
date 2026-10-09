@@ -172,9 +172,6 @@ p{ margin:0 0 1em; }
 .skill:hover{ border-color:var(--line-2); transform:translateY(-2px); box-shadow:var(--shadow); }
 .skill h3{ margin-bottom:.35rem; }
 .skill-tools{ font-family:var(--mono); font-size:.76rem; color:var(--ink-3); line-height:1.5; margin-bottom:1rem; }
-.bars{ display:flex; gap:4px; margin-bottom:.85rem; }
-.bars i{ height:5px; flex:1; border-radius:3px; background:var(--line-2); }
-.bars i.on{ background:var(--accent); }
 .skill-note{ font-size:.87rem; color:var(--ink-2); margin:0; }
 
 /* ---------- projects ---------- */

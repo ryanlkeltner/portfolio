@@ -34,12 +34,6 @@
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  /* ---------- proficiency bars ---------- */
-  $$(".skill").forEach((el) => {
-    const lvl = Math.max(1, Math.min(4, Number(el.dataset.level) || 1));
-    $(".bars", el).innerHTML = [1, 2, 3, 4].map((i) => `<i class="${i <= lvl ? "on" : ""}"></i>`).join("");
-  });
-
   // Text from FILL("...") in projects.js starts with ✏️ and is shown as a dashed to-do box.
   const txt = (s) => {
     const str = String(s ?? ""), i = str.indexOf("✏️");

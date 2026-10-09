@@ -61,6 +61,7 @@
   // Cover + build photos become one rotating gallery on the left.
   function carouselHTML(p) {
     const slides = [
+      ...(p.spins || []).map((s) => ({ ...s, spin: true })),
       ...(p.cover ? [{ src: p.cover, caption: "" }] : []),
       ...(p.media || []),
     ];
@@ -71,7 +72,9 @@
         <div class="car-track" tabindex="-1">
           ${slides.map((m, i) => `
             <figure class="car-slide" aria-roledescription="slide" aria-label="${i + 1} of ${slides.length}">
-              <div class="car-shot">${shot(m.src, m.caption || p.title)}</div>
+              ${m.spin
+                ? `<div class="car-shot car-spin"${m.bg ? ` style="background:${esc(m.bg)}"` : ""}><spin-viewer src="${esc(m.src)}" frames="${Number(m.frames) || 24}" alt="${esc(m.alt || p.title)}"></spin-viewer></div>`
+                : `<div class="car-shot">${shot(m.src, m.caption || p.title)}</div>`}
               <figcaption>${txt(m.caption || "")}</figcaption>
             </figure>`).join("")}
         </div>
@@ -158,6 +161,7 @@
   function setupCarousel(car) {
     const track = $(".car-track", car), slides = $$(".car-slide", car), dots = $$(".car-dots button", car);
     let idx = 0, timer = null, userTook = false, visible = false, hovering = false;
+    const hasSpin = !!$("spin-viewer", car);  // pieces you rotate: don't switch them on a timer
 
     const go = (i, smooth = true) => {
       idx = (i + slides.length) % slides.length;
@@ -176,7 +180,7 @@
     // stopped for good once the visitor takes over.
     const tick = () => { if (visible && !hovering && !userTook && !box.open) go(idx + 1); };
     const sync = () => {
-      const run = slides.length > 1 && visible && !userTook && !still.matches;
+      const run = slides.length > 1 && visible && !userTook && !still.matches && !hasSpin;
       if (run && !timer) timer = setInterval(tick, ROTATE_MS);
       if (!run && timer) { clearInterval(timer); timer = null; }
     };
@@ -193,7 +197,7 @@
       else if (e.target.closest(".car-dots button")) { takeOver(); go(dots.indexOf(e.target.closest("button"))); }
     });
     car.addEventListener("keydown", (e) => {
-      if (e.target.closest(".car-dots, .car-btn") || e.target.matches(".car-shot img")) {
+      if (e.target.closest(".car-dots, .car-btn") || e.target.matches(".car-shot > img")) {
         if (e.key === "ArrowLeft") { e.preventDefault(); takeOver(); go(idx - 1); }
         if (e.key === "ArrowRight") { e.preventDefault(); takeOver(); go(idx + 1); }
       }
@@ -234,7 +238,7 @@
     img.closest(".carousel")?._go?.(lbIdx);
   }
 
-  $$(".car-shot img", grid).forEach((img) => {
+  $$(".car-shot > img", grid).forEach((img) => {
     img.tabIndex = 0;
     img.setAttribute("role", "button");
     img.setAttribute("aria-label", "Enlarge photo" + (img.alt ? ": " + img.alt : ""));
@@ -249,7 +253,7 @@
   }
 
   function lbOpen(img) {
-    lbList = $$(".car-shot img", img.closest(".carousel"));
+    lbList = $$(".car-shot > img", img.closest(".carousel"));
     lbShow(lbList.indexOf(img));
     box.showModal();
     // Chrome/Edge in page-initiated full screen: lock Esc so it doesn't exit full screen.
@@ -275,11 +279,11 @@
   }
 
   grid.addEventListener("click", (e) => {
-    const img = e.target.closest(".car-shot img");
+    const img = e.target.closest(".car-shot > img");
     if (img) lbOpen(img);
   });
   grid.addEventListener("keydown", (e) => {
-    const img = e.target.closest(".car-shot img");
+    const img = e.target.closest(".car-shot > img");
     if (img && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); lbOpen(img); }
   });
   box.addEventListener("click", (e) => {

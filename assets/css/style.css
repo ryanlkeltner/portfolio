@@ -208,8 +208,17 @@ p{ margin:0 0 1em; }
 .car-track::-webkit-scrollbar{ display:none; }
 .car-slide{ flex:0 0 100%; margin:0; scroll-snap-align:start; }
 .car-shot{ aspect-ratio:4/3; border-radius:var(--r); overflow:hidden; background:var(--surface-2); border:1px solid var(--line); }
-.car-shot img{ width:100%; height:100%; object-fit:cover; cursor:zoom-in; }
-.car-shot img[src$=".png"]{ object-fit:contain; }  /* screenshots/drawings: show whole, not cropped */
+.car-shot > img{ width:100%; height:100%; object-fit:cover; cursor:zoom-in; }
+.car-shot > img[src$=".png"]{ object-fit:contain; }  /* screenshots/drawings: show whole, not cropped */
+/* 360° turntable viewers (welding art): square, centered in the 4:3 frame */
+.car-spin{ position:relative; background:#fff; }
+.car-spin spin-viewer{ display:block; position:absolute; top:0; left:50%; transform:translateX(-50%); height:100%; aspect-ratio:1/1; cursor:grab; touch-action:pan-y; user-select:none; outline-offset:-3px; }
+.car-spin spin-viewer.dragging{ cursor:grabbing; }
+.car-spin spin-viewer img{ width:100%; height:100%; object-fit:contain; display:block; pointer-events:none;
+  /* fade the frame's side edges into the background so the square doesn't show a seam */
+  -webkit-mask-image:linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+          mask-image:linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); }
+.spin-hint{ position:absolute; bottom:10px; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:.75rem; color:#555; background:rgba(255,255,255,.85); padding:.15rem .6rem; border-radius:99px; transition:opacity .4s; pointer-events:none; }
 .car-slide figcaption{ font-size:.84rem; color:var(--ink-3); line-height:1.5; margin-top:.7rem; min-height:2.6em; padding-right:5.5rem; }
 .car-btn{
   position:absolute; top:calc((100% - 3.3rem) / 2); transform:translateY(-50%);

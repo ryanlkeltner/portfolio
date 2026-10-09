@@ -21,6 +21,7 @@
      outcome   result, with a number if you have one
      learned   honest reflection — this is what admissions readers remember
      media     [{ src, caption }] photos of the build. Captions matter.
+     spins     optional [{ src, alt, caption, bg }] 360° viewers (see spin-viewer.js), shown first
      links     [{ label, href }] CAD files, code, writeup, video
 
    BLANKS: anything wrapped in FILL("...") shows up on the page as a dashed
@@ -286,7 +287,7 @@ const PROJECTS = [
     timeline: "Ongoing since 2026, in my free time",
     team: "Solo",
     tags: ["MIG welding", "TIG welding", "Angle grinder"],
-    cover: "assets/img/weldart-cover.jpg",
+    cover: null,
     problem: "Welding is a practical fabrication technique, mostly used for industrial work. I like welding as art because it gives that technique a more creative side. I make pieces from things in my life: I'm a guitarist, so I made a guitarist; I have dogs, so I made a dog; and lilies are my favorite flower.",
     process: [
       "Pick a subject from my own life.",
@@ -296,13 +297,13 @@ const PROJECTS = [
     iterations: [],
     outcome: "So far: a small dog, a guitar-playing cowboy, and a lily flower, with more on the way.",
     learned: "Welding with this much precision can be much harder than welding larger projects, even though the pieces don't need structural strength. Just holding the small parts in place while welding them is hard, too.",
-    media: [
-      { src: "assets/img/weldart-guitar-34.jpg",     caption: "The guitar-playing cowboy: a bolt-head hat, a hex-nut guitar with a bolt for the neck, and TIG rod arms and legs." },
-      { src: "assets/img/weldart-dog-34.jpg",        caption: "The dog: a body of hex nuts, bolts for the legs and tail, and washers for the ears." },
-      { src: "assets/img/weldart-dog-side.jpg",      caption: "The dog from the side." },
-      { src: "assets/img/weldart-lily-front.jpg",    caption: "The lily, with petals cut from sheet metal." },
-      { src: "assets/img/weldart-lily-34.jpg",       caption: "The lily from a three-quarter view." },
+    // 360° viewers: drag to spin each piece; the arrows switch pieces
+    spins: [
+      { src: "assets/spin/guitar/", alt: "Welded steel guitar-playing cowboy", caption: "The guitar-playing cowboy: a bolt-head hat, a hex-nut guitar with a bolt for the neck, and TIG rod arms and legs. Drag to spin it." },
+      { src: "assets/spin/dog/",    alt: "Welded steel dog", caption: "The dog: a body of hex nuts, bolts for the legs and tail, and washers for the ears. Drag to spin it." },
+      { src: "assets/spin/lily/",   alt: "Welded sheet-metal lily", bg: "#000", caption: "The lily, with petals cut from sheet metal. Drag to spin it." },
     ],
+    media: [],
     links: [],
   },
 ];

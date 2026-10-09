@@ -298,13 +298,10 @@ const PROJECTS = [
     learned: "Welding with this much precision can be much harder than welding larger projects, even though the pieces don't need structural strength. Just holding the small parts in place while welding them is hard, too.",
     media: [
       { src: "assets/img/weldart-guitar-34.jpg",     caption: "The guitar-playing cowboy: a bolt-head hat, a hex-nut guitar with a bolt for the neck, and TIG rod arms and legs." },
-      { src: "assets/img/weldart-guitar-detail.jpg", caption: "Close-up of the welds holding the guitar and arms together." },
       { src: "assets/img/weldart-dog-34.jpg",        caption: "The dog: a body of hex nuts, bolts for the legs and tail, and washers for the ears." },
       { src: "assets/img/weldart-dog-side.jpg",      caption: "The dog from the side." },
-      { src: "assets/img/weldart-dog-detail.jpg",    caption: "Weld detail where the dog's head meets its hex-nut body." },
       { src: "assets/img/weldart-lily-front.jpg",    caption: "The lily, with petals cut from sheet metal." },
       { src: "assets/img/weldart-lily-34.jpg",       caption: "The lily from a three-quarter view." },
-      { src: "assets/img/weldart-lily-detail.jpg",   caption: "The curled stamens and welds at the center of the lily." },
     ],
     links: [],
   },

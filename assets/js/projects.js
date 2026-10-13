@@ -299,7 +299,7 @@ const PROJECTS = [
     learned: "Welding with this much precision can be much harder than welding larger projects, even though the pieces don't need structural strength. Just holding the small parts in place while welding them is hard, too.",
     // 360° viewers: drag to spin each piece; the arrows switch pieces
     spins: [
-      { src: "assets/spin/guitar/", alt: "Welded steel guitar-playing cowboy", caption: "The guitar-playing cowboy: a bolt-head hat, a hex-nut guitar with a bolt for the neck, and TIG rod arms and legs. Drag to spin it." },
+      { src: "assets/spin/guitar/", alt: "Welded steel guitar-playing cowboy", caption: "The guitar-playing cowboy: a washer hat, a hex-nut guitar with a bolt for the neck, and TIG rod arms and legs. Drag to spin it." },
       { src: "assets/spin/dog/",    alt: "Welded steel dog", caption: "The dog: a body of hex nuts, bolts for the legs and tail, and washers for the ears. Drag to spin it." },
       { src: "assets/spin/lily/",   alt: "Welded sheet-metal lily", bg: "#000", caption: "The lily, with petals cut from sheet metal. Drag to spin it." },
     ],
